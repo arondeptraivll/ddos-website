@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Anh Hải đẹp trai lắm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      min-height: 100vh;
+      background: radial-gradient(ellipse at center, #1a1a1a 0%, #000 70%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      overflow-x: hidden;
+      position: relative;
+    }
+    
+    /* Animated background particles */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+                  radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.3), transparent),
+                  radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                  radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.3), transparent);
+      background-repeat: repeat;
+      background-size: 150px 100px;
+      animation: sparkle 20s linear infinite;
+      opacity: 0.03;
+      pointer-events: none;
+      z-index: 0;
+    }
+    @keyframes sparkle {
+      0% { transform: translateY(0px); }
+      100% { transform: translateY(-100px); }
+    }
+
+    .main-container {
+      position: relative;
+      z-index: 1;
+      max-width: 480px;
+      width: 95vw;
+      margin: 20px auto;
+    }
+
+    /* Rainbow border container */
+    .rainbow-container {
+      position: relative;
+      border-radius: 28px;
+      padding: 4px;
+      background: linear-gradient(45deg, 
+        #ff0080, #ff8c00, #ffd700, #32cd32, #00bfff, #8a2be2, #ff1493, #ff0080
+      );
+      background-size: 400% 400%;
+      animation: rainbowShift 8s ease-in-out infinite;
+      box-shadow: 
+        0 0 60px rgba(255, 0, 128, 0.4),
+        0 0 100px rgba(0, 191, 255, 0.2),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+    @keyframes rainbowShift {
+      0%, 100% { 
+        background-position: 0% 50%;
+        filter: hue-rotate(0deg) brightness(1.2);
+      }
+      25% { 
+        background-position: 100% 50%;
+        filter: hue-rotate(90deg) brightness(1.4);
+      }
+      50% { 
+        background-position: 100% 100%;
+        filter: hue-rotate(180deg) brightness(1.1);
+      }
+      75% { 
+        background-position: 0% 100%;
+        filter: hue-rotate(270deg) brightness(1.3);
+      }
+    }
+
+    .main-content {
+      background: linear-gradient(145deg, #1e1e1e, #141414);
+      border-radius: 24px;
+      padding: 40px 32px;
+      box-shadow: 
+        inset 0 1px 0 rgba(255,255,255,0.1),
+        0 10px 30px rgba(0,0,0,0.6);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-content::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    @keyframes shimmer {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+    .title {
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      background: linear-gradient(45deg, #ff0080, #00bfff, #ffd700, #ff0080);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: titleRainbow 4s ease-in-out infinite;
+      text-shadow: 0 0 30px rgba(255, 0, 128, 0.5);
+    }
+    @keyframes titleRainbow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    .caption {
+      font-size: 1.2rem;
+      color: #e0e0e0;
+      font-style: italic;
+      letter-spacing: 1px;
+      opacity: 0.9;
+    }
+
+    /* Section styling */
+    .section {
+      margin-bottom: 28px;
+    }
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffd700;
+      margin-bottom: 15px;
+      text-align: left;
+      letter-spacing: 1px;
+      text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
+      position: relative;
+    }
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: linear-gradient(90deg, #ffd700, transparent);
+    }
+
+    /* Accordion cards */
+    .accordion-card {
+      background: linear-gradient(145deg, #252525, #1a1a1a);
+      border-radius: 16px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .accordion-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      border-color: rgba(0, 191, 255, 0.3);
+    }
+    .accordion-card.open {
+      border-color: #00bfff;
+      box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+    }
+
+    .accordion-header {
+      cursor: pointer;
+      padding: 18px 22px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, rgba(255, 0, 128, 0.1), rgba(0, 191, 255, 0.1));
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .accordion-header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s;
+    }
+    .accordion-header:hover::before {
+      left: 100%;
+    }
+    .accordion-header:hover {
+      background: linear-gradient(135deg, rgba(255, 0, 128, 0.2), rgba(0, 191, 255, 0.2));
+    }
+
+    /* Special effect for "Hướng dẫn chi tiết" */
+    .accordion-card.surprise .accordion-header {
+      background: linear-gradient(135deg, rgba(255, 20, 147, 0.2), rgba(255, 69, 0, 0.2));
+      position: relative;
+    }
+    .accordion-card.surprise .accordion-header::after {
+      content: "🎁";
+      position: absolute;
+      right: 50px;
+      font-size: 1.2rem;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+
+    .accordion-arrow {
+      font-size: 1.3em;
+      transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      color: #00bfff;
+    }
+    .accordion-card.open .accordion-arrow {
+      transform: rotate(90deg) scale(1.2);
+      color: #ffd700;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      background: linear-gradient(145deg, #1a1a1a, #141414);
+      color: #e0e0e0;
+      font-size: 1.05rem;
+      line-height: 1.6;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .accordion-card.open .accordion-content {
+      max-height: 200px;
+      padding: 20px 22px;
+    }
+
+    /* Dev buttons */
+    .dev-buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 25px;
+    }
+    .dev-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 24px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .dev-btn.discord {
+      background: linear-gradient(135deg, #5865F2, #4752C4);
+    }
+    .dev-btn.youtube {
+      background: linear-gradient(135deg, #ff0000, #cc0000);
+    }
+    .dev-btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s;
+    }
+    .dev-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    }
+    .dev-btn:hover::before {
+      left: 100%;
+    }
+    .dev-btn svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .main-content { padding: 28px 20px; }
+      .title { font-size: 2rem; }
+      .section-title { font-size: 1.2rem; }
+      .accordion-header { font-size: 1rem; padding: 15px 18px; }
+      .dev-buttons { flex-direction: column; gap: 10px; }
+      .dev-btn { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="rainbow-container">
+      <div class="main-content">
+        <div class="header">
+          <div class="title">Anh Hải đẹp trai lắm</div>
+          <div class="caption">Tool DDos Vip của anh hải gió tai</div>
+        </div>
+        
+        <div class="section">
+          <div class="section-title">Các chức năng</div>
+          <div class="accordion-card">
+            <div class="accordion-header">
+              DDos Attack
+              <span class="accordion-arrow">▶</span>
+            </div>
+            <div class="accordion-content">
+              Gửi hàng nghìn request liên tục đến website chỉ định (được tìm endpoint sẵn, spam ngẫu nhiên lên những endpoint có sẵn) làm website sập.
+            </div>
+          </div>
+          <div class="accordion-card">
+            <div class="accordion-header">
+              Slowloris Attack
+              <span class="accordion-arrow">▶</span>
+            </div>
+            <div class="accordion-content">
+              Anh em sử dụng tính năng này nên treo máy nhé, này sẽ giả mạo hàng trăm nghìn người dùng và giữ kết nối rất lâu làm web quá tải vì không xử lý được hết.
+            </div>
+          </div>
+        </div>
+        
+        <div class="section">
+          <div class="section-title">Cách sử dụng</div>
+          <div class="accordion-card surprise">
+            <div class="accordion-header">
+              Hướng dẫn chi tiết
+              <span class="accordion-arrow">▶</span>
+            </div>
+            <div class="accordion-content">
+              Đéo có hướng dẫn chi tiết đâu, admin ko rảnh, menu cũng dễ dùng không hiểu hỏi chatgpt
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="section-title">Dev Info</div>
+          <div class="dev-buttons">
+            <a class="dev-btn discord" href="https://discord.com/invite/SfFayNKxUE" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.120.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+              </svg>
+              Discord
+            </a>
+            <a class="dev-btn youtube" href="https://www.youtube.com/?app=desktop&hl=vi" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              Youtube
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Accordion logic
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', function() {
+        const card = this.parentElement;
+        const isOpen = card.classList.contains('open');
+        
+        // Close all accordions
+        document.querySelectorAll('.accordion-card').forEach(c => c.classList.remove('open'));
+        
+        // Open current if it wasn't open
+        if (!isOpen) {
+          card.classList.add('open');
+          
+          // Special effect for surprise accordion
+          if (card.classList.contains('surprise')) {
+            setTimeout(() => {
+              card.style.animation = 'shake 0.5s ease-in-out';
+              setTimeout(() => {
+                card.style.animation = '';
+              }, 500);
+            }, 200);
+          }
+        }
+      });
+    });
+
+    // Add shake animation for surprise effect
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); }
+        10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+        20%, 40%, 60%, 80% { transform: translateX(3px); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
