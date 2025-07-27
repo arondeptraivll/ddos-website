@@ -1,1 +1,1 @@
-key=abcd ; expire=27/07/2025-23h15
+key=abcd ; expire=27/07/2025-7h30
